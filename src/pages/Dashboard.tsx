@@ -21,14 +21,25 @@ const Dashboard: React.FC = () => {
             Start customizing your dashboard widgets.
           </WidgetCard>
 
+          {/* Code Goals Widget */}
+          <WidgetCard title="Code Goals 🎯">No goals yet.</WidgetCard>
+
           {/* GitHub Commits Widget */}
-          <WidgetCard title="GitHub Commits">
+          <WidgetCard title="GitHub Commits ✔️">
             Activity widget coming soon.
           </WidgetCard>
 
           {/* Pomodoro Timer Widget */}
-          <WidgetCard title="Pomodoro Timer">
+          <WidgetCard title="Pomodoro Timer ⌛">
             Focus timer will appear here.
+          </WidgetCard>
+
+          {/* Daily Coding Streak Widget */}
+          <WidgetCard title="Daily Coding Streak 🔥">No Streak yet.</WidgetCard>
+
+          {/* Recenty Activity Widget */}
+          <WidgetCard title="Recent Activity 🏆">
+            No Recent Activity yet.
           </WidgetCard>
         </div>
       </div>

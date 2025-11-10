@@ -17,6 +17,7 @@ const SettingsPage: React.FC = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-gray-900 dark:text-white">
           <WidgetCard title="Profile Settings">Coming soon</WidgetCard>
           <WidgetCard title="Preferences">Coming soon</WidgetCard>
+          <WidgetCard title="Widget Layout Settings">Coming soon</WidgetCard>
         </div>
       </div>
     </motion.div>
