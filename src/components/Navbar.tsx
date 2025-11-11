@@ -1,4 +1,4 @@
-import { useDarkMode } from "../hooks/useDarkmode";
+import { useDarkMode } from "../hooks/useDarkMode";
 import { Moon, Sun } from "lucide-react";
 
 export default function NavBar() {

@@ -1,40 +1,38 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import DashboardLayout from "./layouts/DashboardLayout";
-import DashboardPage from "./pages/Dashboard";
-import ActivityPage from "./pages/ActivityPage";
-import SettingsPage from "./pages/SettingsPage";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+import { AuthProvider, useAuth } from "./contexts/AuthContext";
+import Dashboard from "./pages/Dashboard";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import type { ReactElement } from "react";
 
-const App: React.FC = () => {
-  return (
-    <Router>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <DashboardLayout>
-              <DashboardPage />
-            </DashboardLayout>
-          }
-        />
-        <Route
-          path="/activity"
-          element={
-            <DashboardLayout>
-              <ActivityPage />
-            </DashboardLayout>
-          }
-        />
-        <Route
-          path="/settings"
-          element={
-            <DashboardLayout>
-              <SettingsPage />
-            </DashboardLayout>
-          }
-        />
-      </Routes>
-    </Router>
-  );
+const PrivateRoute: React.FC<{ children: ReactElement }> = ({ children }) => {
+  const { user } = useAuth();
+  return user ? children : <Navigate to="/login" replace />;
 };
+
+const App = () => (
+  <Router>
+    <AuthProvider>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route
+          path="/dashboard"
+          element={
+            <PrivateRoute>
+              <Dashboard />
+            </PrivateRoute>
+          }
+        />
+        <Route path="*" element={<Navigate to="/login" />} />
+      </Routes>
+    </AuthProvider>
+  </Router>
+);
 
 export default App;
